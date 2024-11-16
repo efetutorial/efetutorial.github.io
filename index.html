@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://fonts.cdnfonts.com/css/poppins" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>efetutorial v1</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+    <!-- Texture Pack Tanıtım Bölümü -->
+<div class="texture-pack-info">
+    <h2>efetutorial v1</h2>
+    <p>efetutorial v1 şu anda yanlızca 1.8.9 sürümü için bulunmaktadır. Aşağıdan indirebilirsiniz.</p>
+</div>
+
+<!-- Overlay başlangıcı -->
+<div id="overlay" class="overlay">
+    <div class="overlay-text">giriş yapmak için tıkla</div>
+</div>
+
+<div class="container">
+    <div class="preview">
+
+        <img src="pack.png" alt="prayviv" style="width: 100%; height: 100%; object-fit: cover;">
+    </div>
+    <button onclick="window.open('https://depweb.com.tr/!%C2%A7d%20Efetutorial%20V1%20%C2%A761.8.9.rar', '_blank')" class="download-button">İNDİR</button>
+    <a href="https://www.virustotal.com/gui/file/c469aaea40105e686844792f7c9951f9b4872974571167bb9d9f503701926d22?nocache=1" class="kucuk-button" target="_blank">VT</a>
+    
+</div>
+
+<!-- Şarkı başlat/durdur butonu -->
+<div class="music-container">
+    <audio id="audio-player" src="ses.mp3" preload="auto"></audio>
+    <button id="play-pause-btn" class="play-pause-btn">
+        <img id="play-pause-img" src="basdur.png" alt=" " style="width: 50px; height: 50px;">
+    </button>
+</div>
+
+<script>
+    const overlay = document.getElementById("overlay");
+    const audioPlayer = document.getElementById("audio-player");
+    const playPauseBtn = document.getElementById("play-pause-btn");
+    const playPauseImg = document.getElementById("play-pause-img");
+
+    // Oynatma durumu için kontrol değişkeni
+    let isPlaying = false;
+    let isFirstClick = true;
+
+    // Oynatma/Durdurma fonksiyonu
+    function togglePlayPause() {
+        if (isPlaying) {
+            audioPlayer.pause(); // Şarkıyı durdur
+            playPauseImg.src = "basdur.png"; // "Başlat" butonunu göster
+        } else {
+            audioPlayer.play(); // Şarkıyı başlat
+            playPauseImg.src = "basdur.png"; // "Durdur" butonunu göster
+        }
+        isPlaying = !isPlaying; // Oynatma durumunu tersine çevir
+    }
+
+    // Sayfaya ilk tıklamada şarkıyı başlat
+    window.addEventListener("click", function(event) {
+        if (isFirstClick) {
+            audioPlayer.play(); // Şarkıyı başlat
+            playPauseImg.src = "basdur.png"; // "Durdur" butonunu göster
+            isPlaying = true; // Oynatma durumunu güncelle
+            isFirstClick = false; // İlk tıklama kontrolünü kapat
+        }
+    });
+
+    // Overlay kaldırma
+    overlay.addEventListener("click", function() {
+        overlay.classList.add("fade-out"); // Fade-out animasyonu ekle
+        setTimeout(() => {
+            overlay.style.display = "none"; // Overlay'i tamamen gizle
+        }, 1000); // Animasyon süresi kadar bekle
+    });
+
+    // Buton tıklama olayı
+    playPauseBtn.addEventListener("click", function(event) {
+        // Sayfa tıklama olayını engelle
+        event.stopPropagation();
+        togglePlayPause();
+    });
+</script>
+
+</body>
+</html>

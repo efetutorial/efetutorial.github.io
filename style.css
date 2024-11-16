@@ -1,0 +1,226 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    animation: backgroundTransition 3s infinite alternate;
+}
+
+@keyframes backgroundTransition {
+    0% {
+        background-color: #0454ff;
+    }
+    100% {
+        background-color: #3e0afc;
+    }
+}
+
+.preview {
+    width: 256px;
+    height: 256px;
+    background-color: #ccc;
+    margin-bottom: 20px;
+}
+
+.container {
+    text-align: center;
+    display: flex;
+    flex-direction: column; /* Butonları alt alta hizalar */
+    align-items: center;
+    gap: 0px; /* Butonlar arasına boşluk ekler */
+    margin-top: 0px; /* Container'ın üst kısmına boşluk ekler */
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 36px;
+    color: #fff;
+    background-color: transparent;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    text-transform: uppercase;
+    position: relative;
+    transition: transform 0.3s ease, color 0.5s ease, text-shadow 0.5s ease;
+    text-shadow: 0 0 5px rgba(88, 101, 242, 0.8);
+    background-image: linear-gradient(90deg, #5865f2, #3e0afc);
+    background-clip: text;
+    -webkit-background-clip: text;
+    font-family: 'poppins', sans-serif;
+}
+
+button:hover {
+    color: transparent;
+    text-shadow: 0 0 15px rgba(88, 101, 242, 1), 0 0 30px rgba(88, 101, 242, 1);
+    transform: scale(1.2);
+    background-image: linear-gradient(90deg, #ff5500, #ff00ff);
+    background-clip: text;
+    -webkit-background-clip: text;
+}
+
+/* Küçük butonun stilini düzeltiyoruz */
+.kucuk-button {
+    padding: 5px 10px;
+    font-size: 18px;
+    color: #fff;
+    background-color: transparent;
+    border: none;
+    border-radius: 5px;
+    margin: 0;
+    cursor: pointer;
+    font-weight: bold;
+    text-transform: uppercase;
+    position: relative;
+    transition: transform 0.3s ease, color 0.5s ease, text-shadow 0.5s ease;
+    text-shadow: 0 0 5px rgba(88, 101, 242, 0.8);
+    background-image: linear-gradient(90deg, #5865f2, #3e0afc);
+    background-clip: text;
+    -webkit-background-clip: text;
+    font-family: 'poppins', sans-serif; /* Fontu uyguladık */
+    display: inline-block; /* Buton gibi davranması için */
+    text-align: center; /* Yazıyı ortalamak için */
+    text-decoration: none; /* Link altı çizgi stilini kaldırmak için */
+}
+
+/* Hover efekti */
+.kucuk-button:hover {
+    color: transparent;
+    text-shadow: 0 0 15px rgba(88, 101, 242, 1), 0 0 30px rgba(88, 101, 242, 1);
+    transform: scale(1.2);
+    background-image: linear-gradient(90deg, #ff5500, #ff00ff);
+    background-clip: text;
+    -webkit-background-clip: text;
+}
+
+
+/* Şarkı oynatma butonunun sağ alt köşeye yerleştirilmesi */
+.music-container {
+    position: fixed;
+    bottom: 20px;
+    z-index: 1000;
+}
+
+.play-pause-btn {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    transition: transform 0.3s ease;
+}
+
+
+/* Texture Pack Bölümü */
+.texture-pack-info {
+    text-align: center;
+    padding: 30px;
+    border-radius: 15px; /* Kenarlarda hafif yuvarlama */
+    width: 80%; /* Genişlik */
+    margin-left: auto;
+    margin-right: auto;
+    color: #fff; /* Yazı rengini beyaz yaptım */
+    position: absolute;
+    top: 20px; /* Üstten 20px mesafe bırak */
+    left: 50%; /* Yatayda ortala */
+    transform: translateX(-50%); /* Gerçekten ortalamak için */
+    z-index: 10; /* Diğer elemanların üstünde olması için */
+}
+
+.texture-pack-info h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+    font-family: 'Poppins', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: bold;
+}
+
+.texture-pack-info p {
+    font-size: 18px;
+    line-height: 1.6;
+    font-family: 'Poppins', sans-serif;
+    color: #f0f0f0;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.texture-pack-info p:hover {
+    color: #ffcc00; /* Hover efekti */
+    transition: color 0.3s ease;
+}
+
+
+.play-pause-btn:hover {
+    transform: scale(1.1);
+}
+
+        /* Saydam siyah arka plan */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7); /* Siyah ve saydam */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000; /* En üstte göster */
+            opacity: 1; /* Tam görünüyor */
+            animation: fadeIn 1s ease-out; /* Animasyon başlangıç */
+        }
+
+        /* Yazı stili */
+        .overlay-text {
+            color: white;
+            font-size: 24px;
+            font-family: 'Poppins', sans-serif;
+            text-align: center;
+            cursor: pointer; /* Tıklanabilir imleç */
+            transform: scale(1); /* Normal boyut */
+            animation: textBounce 1.5s infinite ease-in-out; /* Yazı animasyonu */
+        }
+
+        /* Overlay'i yavaşça gizleme animasyonu */
+        .fade-out {
+            animation: fadeOut 1s ease-out forwards;
+        }
+
+        /* Fade-in animasyonu */
+        @keyframes fadeIn {
+            from {
+                opacity: 0; /* Görünmez */
+            }
+            to {
+                opacity: 1; /* Görünür */
+            }
+        }
+
+        /* Fade-out animasyonu */
+        @keyframes fadeOut {
+            from {
+                opacity: 1; /* Görünür */
+            }
+            to {
+                opacity: 0; /* Görünmez */
+            }
+        }
+
+        /* Yazıya hafif büyüyüp küçülme efekti */
+        @keyframes textBounce {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+        }
+
+
+        h2, p {
+            background-color: transparent; /* Arka planı şeffaf yapar */
+        }
+        
