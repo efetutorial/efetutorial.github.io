@@ -1,1 +1,1 @@
-SAKIN İNTERNETTE efetutorial.github.io ARATMAYIN
+bu sefer çalmadım
